@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 class CashRegistryService {
     private final ProductDao productDao;
     private final CashRegistryDao cashRegistryDao;
+    private final PaymentGateway paymentGateway;
 
     public CashRegistryDto scanProduct(int id, String name) {
         Product product = productDao.find(name);
@@ -21,6 +22,14 @@ class CashRegistryService {
 
     public CashRegistryDto get(int id) {
         CashRegistry cashRegistry = cashRegistryDao.getOrCreate(id);
+        return cashRegistry.toDto();
+    }
+
+    public CashRegistryDto checkout(int id) {
+        CashRegistry cashRegistry = cashRegistryDao.getOrCreate(id);
+        paymentGateway.takePayment(cashRegistry.totalPrice());
+        cashRegistry.clear();
+        cashRegistryDao.save(cashRegistry);
         return cashRegistry.toDto();
     }
 }

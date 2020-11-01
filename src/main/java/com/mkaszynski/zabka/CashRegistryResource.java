@@ -24,4 +24,11 @@ public class CashRegistryResource {
     CashRegistryDto scanProduct(@PathVariable int id, @PathVariable String name) {
         return cashRegistryService.scanProduct(id, name);
     }
+
+    @PostMapping(value = "/cash-register/{id}",
+            produces = "application/json")
+    public @ResponseBody
+    CashRegistryDto checkout(@PathVariable int id) {
+        return cashRegistryService.checkout(id);
+    }
 }

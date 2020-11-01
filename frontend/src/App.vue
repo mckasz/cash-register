@@ -1,18 +1,19 @@
 <template>
   <div id="app">
     <img alt="E-Commerce logo" src="./assets/logo.png" width="300">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <CashRegister/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/CashRegister.vue'
+import CashRegister from './components/CashRegister.vue'
 
 export default {
+  title: 'Cash Register',
   name: 'App',
   components: {
-    HelloWorld
-  }
+    CashRegister
+  },
 }
 </script>
 

@@ -1,19 +1,30 @@
 <template>
   <div class="hello container">
     <div class="row">
-      <form v-on:submit.prevent="get()" class="form col-sm">
+      <form v-on:submit.prevent="get()" class="form col-sm-2">
         <b-form-input v-model="id" placeholder="Cash Register id"></b-form-input>
       </form>
-      <form v-on:submit.prevent="submit()" class="form col-sm">
+      <form v-on:submit.prevent="submit()" class="form col-sm-5">
         <b-form-input v-model="input" placeholder="Scan item"></b-form-input>
+        <b-button v-if="products.length > 0" v-on:click="checkout" style="margin-top: 30px">Checkout</b-button>
       </form>
-      <div class="col-sm">
+      <div class="col-sm-5">
         <div style="height: 38px; font-size: 23px" class="border rounded ">
           Total: {{ formattedTotalPrice }}
         </div>
-        <ItemsList :products="products" />
+        <ItemsList :products="products"/>
       </div>
 
+      <b-modal id="modal-1"
+               title="Checkout in progress"
+               :hide-footer="true"
+               :no-close-on-backdrop="true"
+               :no-close-on-esc="true"
+               >
+        <div class="d-flex justify-content-center">
+          <b-spinner label="Spinning"></b-spinner>
+        </div>
+      </b-modal>
     </div>
   </div>
 </template>
@@ -31,7 +42,7 @@ export default {
   data() {
     return {
       id: 1,
-      input: "beer",
+      input: "",
       products: [],
       totalPrice: 0
     }
@@ -59,9 +70,21 @@ export default {
             this.totalPrice = response.data.totalPrice
           });
       this.input = ""
+    },
+    checkout() {
+      console.log("Checkout")
+      this.$bvModal.show("modal-1")
+      this.$http.post("http://localhost:8080/cash-register/" + this.id)
+          .then(response => {
+            console.log(response.data)
+            this.products = []
+            this.totalPrice = 0
+            this.$bvModal.hide("modal-1")
+          });
+
     }
   },
-  name: 'HelloWorld',
+  name: 'CashRegister',
   props: {
     msg: String
   }

@@ -39,7 +39,11 @@ class CashRegistry {
                         .collect(toList());
     }
 
-    private int totalPrice() {
+    public void clear() {
+        lineItems.clear();
+    }
+
+    public int totalPrice() {
         return lineItems.values()
                         .stream()
                         .mapToInt(LineItem::finalPrice)

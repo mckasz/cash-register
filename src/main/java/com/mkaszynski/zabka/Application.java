@@ -21,10 +21,8 @@ public class Application {
         return new DbCashRegistryDao(cashRegistryRepository);
     }
 
-
-//    @Bean
-//    public ProductResource productResource(ProductDao productDao) {
-//        return new ProductResource(new ProductService(productDao));
-//    }
+    @Bean PaymentGateway paymentGateway() {
+        return new PaymentService();
+    }
 
 }

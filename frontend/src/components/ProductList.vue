@@ -1,6 +1,6 @@
 <template>
-  <div v-if="products.length >= 0">
-    <h2>Scanned items</h2>
+  <div v-if="products.length > 0">
+    <h2 style="margin-top: 30px">Scanned items</h2>
     <b-list-group class="car-list">
       <ProductListItem v-for="product in products"
                        v-bind:key="product.productName"
