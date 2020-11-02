@@ -13,4 +13,5 @@ public class LineItemDto {
     private int amount;
     private int unitPrice;
     private int finalPrice;
+    private String promotion;
 }

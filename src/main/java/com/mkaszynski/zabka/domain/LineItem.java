@@ -4,6 +4,8 @@ import com.mkaszynski.zabka.db.LineItemEntity;
 import com.mkaszynski.zabka.dto.LineItemDto;
 import lombok.Getter;
 
+import java.util.Random;
+
 @Getter
 public class LineItem {
     private final String productName;
@@ -28,11 +30,20 @@ public class LineItem {
         return amount * unitPrice;
     }
 
+    private String promotion() {
+        boolean b = new Random().nextBoolean();
+        if (b) {
+            return "3 for 2";
+        } else {
+            return "";
+        }
+    }
+
     LineItemEntity toEntity() {
         return new LineItemEntity(productName, amount, unitPrice);
     }
 
     public LineItemDto toDto() {
-        return new LineItemDto(productName, amount, unitPrice, finalPrice());
+        return new LineItemDto(productName, amount, unitPrice, finalPrice(), promotion());
     }
 }
