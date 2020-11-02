@@ -1,4 +1,4 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class CashRegistryDto {
+public class CashRegistryDto {
     private int id;
     private List<LineItemDto> lineItems;
     private int totalPrice;

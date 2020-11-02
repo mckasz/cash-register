@@ -1,6 +1,6 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.domain;
 
-interface ProductDao {
+public interface ProductDao {
     Product find(String name);
 
     void save(Product product);

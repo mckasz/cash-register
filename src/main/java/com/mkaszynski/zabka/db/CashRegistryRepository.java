@@ -1,4 +1,4 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.db;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

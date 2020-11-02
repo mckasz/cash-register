@@ -1,9 +1,11 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.domain;
 
+import com.mkaszynski.zabka.db.ProductEntity;
+import com.mkaszynski.zabka.dto.ProductDto;
 import lombok.Getter;
 
 @Getter
-class Product {
+public class Product {
     private final String name;
     private final int amount;
     private final int price;

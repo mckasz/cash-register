@@ -1,5 +1,6 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.db;
 
+import com.mkaszynski.zabka.domain.LineItem;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "line_item")
-class LineItemEntity {
+public class LineItemEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;

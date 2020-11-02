@@ -1,9 +1,11 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.domain;
 
+import com.mkaszynski.zabka.db.LineItemEntity;
+import com.mkaszynski.zabka.dto.LineItemDto;
 import lombok.Getter;
 
 @Getter
-class LineItem {
+public class LineItem {
     private String productName;
     private int amount;
     private int unitPrice;

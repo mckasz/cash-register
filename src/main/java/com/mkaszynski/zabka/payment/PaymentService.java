@@ -1,6 +1,6 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.payment;
 
-class PaymentService implements PaymentGateway {
+public class PaymentService implements PaymentGateway {
     @Override
     public void takePayment(int value) {
         try {

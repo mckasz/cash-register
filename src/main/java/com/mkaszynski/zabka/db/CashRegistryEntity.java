@@ -1,5 +1,6 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.db;
 
+import com.mkaszynski.zabka.domain.CashRegistry;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,7 +13,7 @@ import static java.util.stream.Collectors.toList;
 @Setter
 @Entity
 @Table(name = "cash_registry")
-class CashRegistryEntity {
+public class CashRegistryEntity {
     @Id
     private int id;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

@@ -1,5 +1,4 @@
-package com.mkaszynski.zabka;
-
+package com.mkaszynski.zabka.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-class LineItemDto {
-    private String productName;
+public class ProductDto {
+    private String name;
     private int amount;
-    private int unitPrice;
-    private int finalPrice;
+    private int price;
     private String imagePath;
 }

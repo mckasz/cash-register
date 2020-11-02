@@ -1,6 +1,6 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.domain;
 
-interface CashRegistryDao {
+public interface CashRegistryDao {
     CashRegistry getOrCreate(int id);
 
     void save(CashRegistry cashRegistry);

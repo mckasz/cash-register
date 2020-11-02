@@ -1,6 +1,9 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.domain;
 
-import java.util.ArrayList;
+import com.mkaszynski.zabka.db.CashRegistryEntity;
+import com.mkaszynski.zabka.dto.CashRegistryDto;
+import com.mkaszynski.zabka.dto.LineItemDto;
+
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -8,7 +11,7 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
-class CashRegistry {
+public class CashRegistry {
     private final int id;
     private final Map<String, LineItem> lineItems;
 

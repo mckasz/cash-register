@@ -1,5 +1,6 @@
-package com.mkaszynski.zabka;
+package com.mkaszynski.zabka.domain;
 
+import com.mkaszynski.zabka.dto.CashRegistryDto;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:9000")
