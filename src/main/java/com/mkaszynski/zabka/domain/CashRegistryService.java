@@ -1,7 +1,7 @@
 package com.mkaszynski.zabka.domain;
 
-import com.mkaszynski.zabka.payment.PaymentGateway;
 import com.mkaszynski.zabka.dto.CashRegistryDto;
+import com.mkaszynski.zabka.payment.PaymentGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +12,11 @@ class CashRegistryService {
     private final CashRegistryDao cashRegistryDao;
     private final PaymentGateway paymentGateway;
 
+    public CashRegistryDto get(int id) {
+        CashRegistry cashRegistry = cashRegistryDao.getOrCreate(id);
+        return cashRegistry.toDto();
+    }
+
     public CashRegistryDto scanProduct(int id, String name) {
         Product product = productDao.find(name);
 
@@ -19,11 +24,6 @@ class CashRegistryService {
         cashRegistry.addProduct(product);
         cashRegistryDao.save(cashRegistry);
 
-        return cashRegistry.toDto();
-    }
-
-    public CashRegistryDto get(int id) {
-        CashRegistry cashRegistry = cashRegistryDao.getOrCreate(id);
         return cashRegistry.toDto();
     }
 

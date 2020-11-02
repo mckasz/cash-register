@@ -6,10 +6,10 @@ import lombok.Getter;
 
 @Getter
 public class LineItem {
-    private String productName;
+    private final String productName;
     private int amount;
-    private int unitPrice;
-    private String imagePath;
+    private final int unitPrice;
+    private final String imagePath;
 
     public LineItem(String productName, int amount, int unitPrice, String imagePath) {
         this.productName = productName;

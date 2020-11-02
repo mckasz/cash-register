@@ -6,10 +6,11 @@ import com.mkaszynski.zabka.dto.LineItemDto;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
+import static com.mkaszynski.zabka.domain.LineItem.firstLineItemFor;
+import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 public class CashRegistry {
     private final int id;
@@ -17,22 +18,16 @@ public class CashRegistry {
 
     public CashRegistry(int id, List<LineItem> lineItems) {
         this.id = id;
-        this.lineItems = lineItems.stream().collect(Collectors.toMap(LineItem::getProductName, Function.identity()));
+        this.lineItems = lineItems.stream().collect(toMap(LineItem::getProductName, identity()));
     }
 
     public void addProduct(Product product) {
         LineItem lineItem = lineItems.get(product.getName());
         if (lineItem == null) {
-            lineItems.put(product.getName(), LineItem.firstLineItemFor(product));
+            lineItems.put(product.getName(), firstLineItemFor(product));
         } else {
             lineItem.increaseAmount();
         }
-    }
-
-    public CashRegistryDto toDto() {
-        return new CashRegistryDto(id,
-                                   mapLineItems(),
-                                   totalPrice());
     }
 
     private List<LineItemDto> mapLineItems() {
@@ -51,6 +46,12 @@ public class CashRegistry {
                         .stream()
                         .mapToInt(LineItem::finalPrice)
                         .sum();
+    }
+
+    public CashRegistryDto toDto() {
+        return new CashRegistryDto(id,
+                                   mapLineItems(),
+                                   totalPrice());
     }
 
     public CashRegistryEntity toEntity() {
