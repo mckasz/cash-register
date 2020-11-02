@@ -17,19 +17,17 @@ public class ProductEntity {
     private String name;
     private int amount;
     private int price;
-    private String imagePath;
 
     public ProductEntity() {
     }
 
-    public ProductEntity(String name, int amount, int price, String imagePath) {
+    public ProductEntity(String name, int amount, int price) {
         this.name = name;
         this.amount = amount;
         this.price = price;
-        this.imagePath = imagePath;
     }
 
     Product toDomain() {
-        return new Product(name, amount, price, imagePath);
+        return new Product(name, amount, price);
     }
 }

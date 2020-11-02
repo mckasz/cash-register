@@ -10,9 +10,9 @@ public class DbProductDao implements ProductDao {
 
     public DbProductDao(ProductRepository repository) {
         this.repository = repository;
-        this.save(new Product("milk", 1, 220, "milk.jpeg"));
-        this.save(new Product("beer", 1, 450, "beer.jpeg"));
-        this.save(new Product("butter", 1, 280, "butter.jpeg"));
+        this.save(new Product("milk", 1, 220));
+        this.save(new Product("beer", 1, 450));
+        this.save(new Product("butter", 1, 280));
     }
 
     @Override

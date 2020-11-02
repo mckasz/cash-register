@@ -11,5 +11,4 @@ public class ProductDto {
     private String name;
     private int amount;
     private int price;
-    private String imagePath;
 }

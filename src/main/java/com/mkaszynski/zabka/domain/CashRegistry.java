@@ -26,7 +26,8 @@ public class CashRegistry {
         if (lineItem == null) {
             lineItems.put(product.getName(), firstLineItemFor(product));
         } else {
-            lineItem.increaseAmount();
+            LineItem updatedLineItem = lineItem.increaseAmount();
+            lineItems.put(product.getName(), updatedLineItem);
         }
     }
 

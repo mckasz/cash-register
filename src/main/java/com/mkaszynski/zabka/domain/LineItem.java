@@ -2,14 +2,14 @@ package com.mkaszynski.zabka.domain;
 
 import com.mkaszynski.zabka.db.LineItemEntity;
 import com.mkaszynski.zabka.dto.LineItemDto;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-import java.util.Random;
-
 @Getter
+@EqualsAndHashCode
 public class LineItem {
     private final String productName;
-    private int amount;
+    private final int amount;
     private final int unitPrice;
 
     public LineItem(String productName, int amount, int unitPrice) {
@@ -22,21 +22,20 @@ public class LineItem {
         return new LineItem(product.getName(), 1, product.getPrice());
     }
 
-    public void increaseAmount() {
-        amount += 1;
+    public LineItem increaseAmount() {
+        return new LineItem(productName, amount + 1, unitPrice);
     }
 
     public int finalPrice() {
-        return amount * unitPrice;
+        return (amount - numberOfFreeItems()) * unitPrice;
+    }
+
+    private int numberOfFreeItems() {
+        return amount / 3;
     }
 
     private String promotion() {
-        boolean b = new Random().nextBoolean();
-        if (b) {
-            return "3 for 2";
-        } else {
-            return "";
-        }
+        return amount > 2 ? "3 for 2" : "";
     }
 
     LineItemEntity toEntity() {
@@ -47,3 +46,4 @@ public class LineItem {
         return new LineItemDto(productName, amount, unitPrice, finalPrice(), promotion());
     }
 }
+
