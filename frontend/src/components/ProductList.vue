@@ -1,10 +1,10 @@
 <template>
-  <div v-if="products.length > 0">
+  <div v-if="lineItems.length > 0">
     <h2 style="margin-top: 30px">Scanned items</h2>
     <b-list-group class="car-list">
-      <ProductListItem v-for="product in products"
-                       v-bind:key="product.productName"
-                       :product="product"
+      <ProductListItem v-for="lineItem in lineItems"
+                       v-bind:key="lineItem.productName"
+                       :line-item="lineItem"
       />
     </b-list-group>
   </div>
@@ -15,23 +15,14 @@ import ProductListItem from "@/components/ProductListItem";
 export default {
   name: 'ProductList',
   components: {ProductListItem},
+  props: {
+    lineItems: Array
+  },
   created: function () {
-    console.log("Products received", this.products)
+    console.log("Products received", this.lineItems)
   },
   updated() {
-    console.log("Products received", this.products)
-  },
-  data() {
-    return {
-      localProduct: {
-        name: "beer",
-        imagePath: "beer.jpeg",
-        price: 450
-      }
-    }
-  },
-  props: {
-    products: Array
+    console.log("Products received", this.lineItems)
   }
 }
 </script>

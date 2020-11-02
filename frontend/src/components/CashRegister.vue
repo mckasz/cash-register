@@ -6,13 +6,13 @@
       </form>
       <form v-on:submit.prevent="submit()" class="form col-sm-5">
         <b-form-input v-model="input" placeholder="Scan item"></b-form-input>
-        <b-button v-if="products.length > 0" v-on:click="checkout" style="margin-top: 30px">Checkout</b-button>
+        <b-button v-if="lineItems.length > 0" v-on:click="checkout" style="margin-top: 30px">Checkout</b-button>
       </form>
       <div class="col-sm-5">
         <div style="height: 38px; font-size: 23px" class="border rounded ">
           Total: {{ formattedTotalPrice }}
         </div>
-        <ItemsList :products="products"/>
+        <ItemsList :line-items="lineItems"/>
       </div>
 
       <b-modal id="modal-1"
@@ -43,7 +43,7 @@ export default {
     return {
       id: 1,
       input: "",
-      products: [],
+      lineItems: [],
       totalPrice: 0
     }
   },
@@ -56,7 +56,7 @@ export default {
       this.$http.get('http://localhost:8080/cash-register/' + this.id)
           .then(response => {
             console.log(response.data)
-            this.products = response.data.lineItems;
+            this.lineItems = response.data.lineItems;
             this.totalPrice = response.data.totalPrice
           });
     },
@@ -66,7 +66,7 @@ export default {
       this.$http.put(url)
           .then(response => {
             console.log(response.data)
-            this.products = response.data.lineItems;
+            this.lineItems = response.data.lineItems;
             this.totalPrice = response.data.totalPrice
           });
       this.input = ""
@@ -77,7 +77,7 @@ export default {
       this.$http.post("http://localhost:8080/cash-register/" + this.id)
           .then(response => {
             console.log(response.data)
-            this.products = []
+            this.lineItems = []
             this.totalPrice = 0
             this.$bvModal.hide("modal-1")
           });
