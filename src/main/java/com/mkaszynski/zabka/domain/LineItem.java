@@ -9,17 +9,15 @@ public class LineItem {
     private final String productName;
     private int amount;
     private final int unitPrice;
-    private final String imagePath;
 
-    public LineItem(String productName, int amount, int unitPrice, String imagePath) {
+    public LineItem(String productName, int amount, int unitPrice) {
         this.productName = productName;
         this.amount = amount;
         this.unitPrice = unitPrice;
-        this.imagePath = imagePath;
     }
 
     static LineItem firstLineItemFor(Product product) {
-        return new LineItem(product.getName(), 1, product.getPrice(), product.getImagePath());
+        return new LineItem(product.getName(), 1, product.getPrice());
     }
 
     public void increaseAmount() {
@@ -31,10 +29,10 @@ public class LineItem {
     }
 
     LineItemEntity toEntity() {
-        return new LineItemEntity(productName, amount, unitPrice, imagePath);
+        return new LineItemEntity(productName, amount, unitPrice);
     }
 
     public LineItemDto toDto() {
-        return new LineItemDto(productName, amount, unitPrice, finalPrice(), imagePath);
+        return new LineItemDto(productName, amount, unitPrice, finalPrice());
     }
 }

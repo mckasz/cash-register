@@ -17,19 +17,17 @@ public class LineItemEntity {
     private String productName;
     private int amount;
     private int price;
-    private String imagePath;
 
     public LineItemEntity() {
     }
 
-    public LineItemEntity(String productName, int amount, int price, String imagePath) {
+    public LineItemEntity(String productName, int amount, int price) {
         this.productName = productName;
         this.amount = amount;
         this.price = price;
-        this.imagePath = imagePath;
     }
 
     public LineItem toDomain() {
-        return new LineItem(productName, amount, price, imagePath);
+        return new LineItem(productName, amount, price);
     }
 }
