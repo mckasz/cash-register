@@ -13,6 +13,10 @@ public class LineItem {
     private final int unitPrice;
 
     public LineItem(String productName, int amount, int unitPrice) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Line Item should have positive amount. Amount: " + amount);
+        }
+
         this.productName = productName;
         this.amount = amount;
         this.unitPrice = unitPrice;
