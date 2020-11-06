@@ -14,6 +14,7 @@ import java.util.Map;
 public class CashRegistry {
     private final int id;
     private final Map<String, LineItem> lineItems;
+    private String unused;
 
     public CashRegistry(int id, List<LineItem> lineItems) {
         this.id = id;
