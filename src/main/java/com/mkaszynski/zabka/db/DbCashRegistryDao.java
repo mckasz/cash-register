@@ -2,7 +2,6 @@ package com.mkaszynski.zabka.db;
 
 import com.mkaszynski.zabka.domain.CashRegistry;
 import com.mkaszynski.zabka.domain.CashRegistryDao;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +17,8 @@ public class DbCashRegistryDao implements CashRegistryDao {
     @Override
     public CashRegistry getOrCreate(int id) {
         List<CashRegistryEntity> cashRegistries = cashRegistryRepository.findAll();
-        Optional<CashRegistryEntity> first = cashRegistries.stream().filter(c -> c.getId() == id).findFirst();
+        Optional<CashRegistryEntity> first =
+            cashRegistries.stream().filter(c -> c.getId() == id).findFirst();
         if (first.isPresent()) {
             return first.get().toDomain();
         } else {

@@ -1,13 +1,16 @@
 package com.mkaszynski.zabka.db;
 
+import static java.util.stream.Collectors.toList;
+
 import com.mkaszynski.zabka.domain.CashRegistry;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.*;
-import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @Getter
 @Setter

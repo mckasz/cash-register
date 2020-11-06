@@ -2,11 +2,10 @@ package com.mkaszynski.zabka.db;
 
 import com.mkaszynski.zabka.domain.Product;
 import com.mkaszynski.zabka.domain.ProductDao;
-
 import java.util.Optional;
 
 public class DbProductDao implements ProductDao {
-    private ProductRepository repository;
+    private final ProductRepository repository;
 
     public DbProductDao(ProductRepository repository) {
         this.repository = repository;
