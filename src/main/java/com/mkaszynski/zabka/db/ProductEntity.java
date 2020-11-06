@@ -1,12 +1,11 @@
 package com.mkaszynski.zabka.db;
 
 import com.mkaszynski.zabka.domain.Product;
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
