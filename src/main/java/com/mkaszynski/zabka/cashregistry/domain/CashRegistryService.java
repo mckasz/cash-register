@@ -1,6 +1,6 @@
-package com.mkaszynski.zabka.domain;
+package com.mkaszynski.zabka.cashregistry.domain;
 
-import com.mkaszynski.zabka.dto.CashRegistryDto;
+import com.mkaszynski.zabka.cashregistry.dto.CashRegistryDto;
 import com.mkaszynski.zabka.payment.PaymentGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.mkaszynski.zabka.db;
+package com.mkaszynski.zabka.cashregistry.db;
 
-import com.mkaszynski.zabka.domain.LineItem;
+import com.mkaszynski.zabka.cashregistry.domain.LineItem;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +15,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "line_item")
 @EqualsAndHashCode
-public class LineItemEntity {
+class LineItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;

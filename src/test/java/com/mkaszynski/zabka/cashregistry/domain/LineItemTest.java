@@ -1,10 +1,9 @@
-package com.mkaszynski.zabka.domain;
-
-import com.mkaszynski.zabka.db.LineItemEntity;
-import org.junit.jupiter.api.Test;
+package com.mkaszynski.zabka.cashregistry.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import org.junit.jupiter.api.Test;
 
 class LineItemTest {
 
@@ -43,11 +42,6 @@ class LineItemTest {
         assertThat(new LineItem("name", 1, 100).getProductName()).isEqualTo("name");
         assertThat(new LineItem("name", 1, 100).getAmount()).isEqualTo(1);
         assertThat(new LineItem("name", 1, 100).getUnitPrice()).isEqualTo(100);
-    }
-
-    @Test
-    void testEntity() {
-        assertThat(new LineItem("name", 1, 100).toEntity()).isEqualTo(new LineItemEntity("name", 1, 100));
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.mkaszynski.zabka.dto;
+package com.mkaszynski.zabka.cashregistry.dto;
 
 
 import lombok.AllArgsConstructor;

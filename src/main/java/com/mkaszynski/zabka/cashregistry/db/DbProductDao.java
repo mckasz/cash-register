@@ -1,10 +1,10 @@
-package com.mkaszynski.zabka.db;
+package com.mkaszynski.zabka.cashregistry.db;
 
-import com.mkaszynski.zabka.domain.Product;
-import com.mkaszynski.zabka.domain.ProductDao;
+import com.mkaszynski.zabka.cashregistry.domain.Product;
+import com.mkaszynski.zabka.cashregistry.domain.ProductDao;
 import java.util.Optional;
 
-public class DbProductDao implements ProductDao {
+class DbProductDao implements ProductDao {
     private final ProductRepository repository;
 
     public DbProductDao(ProductRepository repository) {
@@ -22,6 +22,12 @@ public class DbProductDao implements ProductDao {
 
     @Override
     public void save(Product product) {
-        repository.save(product.toEntity());
+        repository.save(toEntity(product));
     }
+
+
+    public ProductEntity toEntity(Product product) {
+        return new ProductEntity(product.getName(), product.getAmount(), product.getPrice());
+    }
+
 }

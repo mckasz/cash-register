@@ -1,20 +1,18 @@
-package com.mkaszynski.zabka.domain;
+package com.mkaszynski.zabka.cashregistry.domain;
 
-import static com.mkaszynski.zabka.domain.LineItem.firstLineItemFor;
+import static com.mkaszynski.zabka.cashregistry.domain.LineItem.firstLineItemFor;
 import static java.util.function.Function.identity;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
-import com.mkaszynski.zabka.db.CashRegistryEntity;
-import com.mkaszynski.zabka.dto.CashRegistryDto;
-import com.mkaszynski.zabka.dto.LineItemDto;
+import com.mkaszynski.zabka.cashregistry.dto.CashRegistryDto;
+import com.mkaszynski.zabka.cashregistry.dto.LineItemDto;
 import java.util.List;
 import java.util.Map;
 
 public class CashRegistry {
     private final int id;
     private final Map<String, LineItem> lineItems;
-    private String unused;
 
     public CashRegistry(int id, List<LineItem> lineItems) {
         this.id = id;
@@ -55,10 +53,11 @@ public class CashRegistry {
                                    totalPrice());
     }
 
-    public CashRegistryEntity toEntity() {
-        return new CashRegistryEntity(id, lineItems.values()
-                                                   .stream()
-                                                   .map(LineItem::toEntity)
-                                                   .collect(toList()));
+    public int getId() {
+        return id;
+    }
+
+    public Map<String, LineItem> getLineItems() {
+        return lineItems;
     }
 }

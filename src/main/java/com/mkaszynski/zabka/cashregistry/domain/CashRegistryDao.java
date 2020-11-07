@@ -1,4 +1,4 @@
-package com.mkaszynski.zabka.domain;
+package com.mkaszynski.zabka.cashregistry.domain;
 
 public interface CashRegistryDao {
     CashRegistry getOrCreate(int id);

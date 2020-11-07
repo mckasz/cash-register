@@ -1,11 +1,10 @@
-package com.mkaszynski.zabka.domain;
-
-import com.mkaszynski.zabka.dto.LineItemDto;
-import org.junit.jupiter.api.Test;
-
-import java.util.Collections;
+package com.mkaszynski.zabka.cashregistry.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+import com.mkaszynski.zabka.cashregistry.dto.LineItemDto;
+import java.util.Collections;
+import org.junit.jupiter.api.Test;
 
 class CashRegistryTest {
 

@@ -1,6 +1,6 @@
-package com.mkaszynski.zabka.domain;
+package com.mkaszynski.zabka.cashregistry.domain;
 
-import com.mkaszynski.zabka.dto.CashRegistryDto;
+import com.mkaszynski.zabka.cashregistry.dto.CashRegistryDto;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:9000")
 @RestController
-public class CashRegistryResource {
+class CashRegistryResource {
     private final CashRegistryService cashRegistryService;
 
     public CashRegistryResource(CashRegistryService cashRegistryService) {

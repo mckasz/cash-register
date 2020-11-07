@@ -1,6 +1,6 @@
-package com.mkaszynski.zabka.db;
+package com.mkaszynski.zabka.cashregistry.db;
 
-import com.mkaszynski.zabka.domain.Product;
+import com.mkaszynski.zabka.cashregistry.domain.Product;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;

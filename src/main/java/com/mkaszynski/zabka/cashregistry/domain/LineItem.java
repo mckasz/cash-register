@@ -1,7 +1,6 @@
-package com.mkaszynski.zabka.domain;
+package com.mkaszynski.zabka.cashregistry.domain;
 
-import com.mkaszynski.zabka.db.LineItemEntity;
-import com.mkaszynski.zabka.dto.LineItemDto;
+import com.mkaszynski.zabka.cashregistry.dto.LineItemDto;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -41,10 +40,6 @@ public class LineItem {
 
     private String promotion() {
         return amount > 2 ? "3 for 2" : "";
-    }
-
-    LineItemEntity toEntity() {
-        return new LineItemEntity(productName, amount, unitPrice);
     }
 
     public LineItemDto toDto() {

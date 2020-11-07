@@ -1,4 +1,4 @@
-package com.mkaszynski.zabka.domain;
+package com.mkaszynski.zabka.cashregistry.domain;
 
 public interface ProductDao {
     Product find(String name);

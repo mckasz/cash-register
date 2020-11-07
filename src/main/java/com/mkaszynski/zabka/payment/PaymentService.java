@@ -1,6 +1,7 @@
 package com.mkaszynski.zabka.payment;
 
 public class PaymentService implements PaymentGateway {
+
     @Override
     public void takePayment(int value) {
         try {
@@ -8,5 +9,6 @@ public class PaymentService implements PaymentGateway {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
     }
 }

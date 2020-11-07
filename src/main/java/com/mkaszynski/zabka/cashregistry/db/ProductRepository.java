@@ -1,8 +1,8 @@
-package com.mkaszynski.zabka.db;
+package com.mkaszynski.zabka.cashregistry.db;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends JpaRepository<ProductEntity, String> {
+interface ProductRepository extends JpaRepository<ProductEntity, String> {
 }
